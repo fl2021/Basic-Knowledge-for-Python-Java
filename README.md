@@ -734,95 +734,180 @@ http://www.jiuzhang.com/solutions/convert-binary-tree-to-linked-lists-by-depth/
 clone 相当于 Deep Copy or Hard Copy, reference相当于Soft Copy
 
 reference：a = [1, 2, 3](a里存储的是[1, 2, 3]的内存地址）, b = a (soft copy， 复制了内存地址), a[1] = 100, print(b[1]) => 100
+
 a = 1 (a里存储的是value 1, 因为1 是int，是基本数据类型）, b = a (b = 1)
+
 a = [1, 2, 3], b = a.copy() (相当于hard copy）
+
 Clone Graph (F); 图的遍历（由点及面）
+
 克隆图，相当于hard copy， 当我对克隆出来的图进行任何操作时，不会影响之前的那个图
+
 做法： 1 找到所有的点； 2 复制所有的点； 3 复制所有的边
+
 http://www.lintcode.com/problem/clone-graph/
+
 http://www.jiuzhang.com/solutions/clone-graph/
+
 BFS 的时间复杂度; O(N + M); 其中 N 为点数，M 为边数
+
 Word Ladder; 最典型的BFS问题 —— 隐式图 (Implicit Graph) 最短路径
+
 http://www.lintcode.com/problem/word-ladder/
+
 http://www.jiuzhang.com/solution/word-ladder/
+
 矩阵中的宽度优先搜索, BFS in Matrix
+
 矩阵 vs 图
+
 图 Graph, N个点，M条边, M最大是 O(N^2) 的级别, 图上BFS时间复杂度 = O(N + M); 说是O(M)问题也不大，因为M一般都比N大; 所以最坏情况可能是 O(N^2)
+
 矩阵 Matrix, R行C列, RC个点，RC*2 条边（每个点上下左右4条边，每条边被2个点共享）; 矩阵中BFS时间复杂度 = O(R * C)
+
 Number of Islands
+
 http://www.lintcode.com/problem/number-of-islands/
 http://www.jiuzhang.com/solutions/number-of-islands/
+
 图的遍历（由点及面）
+
 坐标变换数组
+
 int[] deltaX = {1,0,0,-1};
+
 int[] deltaY = {0,1,-1,0};
+
 问：写出八个方向的坐标变换数组？
+
 更多 Union Find 有关的问题, 将在《九章算法强化班》中讲解, 并查集 Union Find
+
 Knight Shortest Path
+
 http://www.lintcode.com/problem/knight-shortest-path/
 http://www.jiuzhang.com/solutions/knight-shortest-path/
+
 简单图最短路径
+
 follow up: speed up?（见随课教程）
+
 拓扑排序 Topological Sorting; 几乎每个公司都有一道拓扑排序的面试题！ BFS or DFS?
+
 独孤九剑——破剑式: 能够用 BFS 解决的问题，一定不要用 DFS 去做！因为用 Recursion 实现的 DFS 可能造成 StackOverflow! (Iteration 的 DFS 一来你不会写，二来面试官也看不懂)
+
 入度（In-degree）： 有向图（Directed Graph）中指向当前节点的点的个数（或指向当前节点的边的条数）
+
 算法描述：
+
 统计每个点的入度
+
 将每个入度为 0 的点放入队列（Queue）中作为起始节点
+
 不断从队列中拿出一个点，去掉这个点的所有连边（指向其他点的边），其他点的相应的入度 - 1
+
 一旦发现新的入度为 0 的点，丢回队列中
+
 拓扑排序并不是传统的排序算法; 一个图可能存在多个拓扑序（Topological Order），也可能不存在任何拓扑序
+
 Topological Sorting
+
 http://www.lintcode.com/problem/topological-sorting/
 http://www.jiuzhang.com/solutions/topological-sorting/
+
 该问题保证一定存在至少一个拓扑序
+
 拓扑排序的四种不同问法:
+
 求任意1个拓扑序（Topological Order）
+
 问是否存在拓扑序（是否可以被拓扑排序）
+
 求所有的拓扑序 -> DFS
+
 求是否存在且仅存在一个拓扑序 -> Queue中最多同时只有1个节点
+
 Course Schedule I && II (GAFZ)
+
 http://www.lintcode.com/problem/course-schedule/
 http://www.lintcode.com/problem/course-schedule-ii/
+
 换了个皮，第二问需要判断是否没有拓扑序
+
 Alien Dictionary (GFTSAP)
+
 http://www.lintcode.com/problem/alien-dictionary/
 http://www.jiuzhang.com/solution/alien-dictionary/
 相似问题：http://www.lintcode.com/problem/sequence-reconstruction/
+
 考点1：如何构建图
+
 考点2：如何存储图
+
 考点3：如何拓扑排序
+
 相关问题
+
 图上的BFS, 如下：
+
 判断一个图是否是一棵树
+
 http://www.lintcode.com/problem/graph-valid-tree/
+
 搜索图中最近值为target的点
+
 http://www.lintcode.com/problem/search-graph-nodes/
+
 无向图联通块
+
 http://www.lintcode.com/problem/connected-component-in-undirected-graph/
+
 序列重构（判断是否只有一个拓扑排序）
+
 http://www.lintcode.com/problem/sequence-reconstruction/
+
 矩阵上的BFS，如下：
+
 僵尸多少天吃掉所有人
+
 http://www.lintcode.com/problem/zombie-in-matrix/
+
 建邮局问题 Build Post Office II
+
 http://www.lintcode.com/problem/build-post-office-ii/
+
 总结 Conclusion：
+
 能用 BFS 的一定不要用 DFS（除非面试官特别要求）
+
 BFS 的两个使用条件：
+
 图的遍历（由点及面，层级遍历）
+
 简单图最短路径
+
 是否需要层级遍历： size = queue.size()
+
 拓扑排序必须掌握！
+
 坐标变换数组：
+
 deltaX, deltaY
+
 inBound
+
 课后补充内容：
+
+
 请在随课教程中自学如下内容：
+
 http://www.jiuzhang.com/tutorial/algorithm/367
+
 另外两种宽度优先搜索算法的实现方式
+
 双向宽度优先搜索算法（Bidirecitonal BFS）
+
 lintcode 练习
+
 433 Number of Islands
 69 Binary Tree Level Order Traversal
 615 Course Schedule
